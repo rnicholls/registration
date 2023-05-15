@@ -9,7 +9,7 @@
   },
   "main": "script.js",
   "scripts": {
-    "develop": "cross-env NODE_OPTIONS=--no-warnings npm run lint && node server.js",
+    "develop": "cross-env NODE_OPTIONS=--no-warnings node server.js",
     "eslint": "eslint \"./**/*.js\"",
     "lint": "cross-env npm run stylelint && npm run eslint",
     "stylelint": "cross-env stylelint \"./**/*.{css,less}\""
