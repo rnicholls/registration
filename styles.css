@@ -1,0 +1,44 @@
+body {
+font-family: Arial, sans-serif;
+background-color: #f1f1f1;
+}
+
+#registration-form {
+max-width: 400px;
+margin: 20px auto;
+padding: 20px;
+background-color: #fff;
+border-radius: 5px;
+}
+
+.form-group {
+margin-bottom: 10px;
+}
+
+label {
+display: block;
+font-weight: bold;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+width: 100%;
+padding: 8px;
+border-radius: 5px;
+border: 1px solid #ccc;
+}
+
+button[type='submit'] {
+padding: 10px 20px;
+background-color: #4CAF50;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.error-message {
+color: red;
+margin-top: 5px;
+}
