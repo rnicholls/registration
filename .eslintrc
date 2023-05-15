@@ -1,0 +1,59 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": "airbnb-base",
+    "overrides": [
+    ],
+    "parserOptions": {
+        "requireConfigFile": false,
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "rules": {
+        "arrow-parens": ["error", "as-needed", {
+            "requireForBlockBody": true
+        }],
+        "comma-dangle": ["error", "never"],
+        "comma-style": "error",
+        "constructor-super": "off",
+        "class-methods-use-this": "off",
+        "implicit-arrow-linebreak": "error",
+        "import/extensions": ["error", "always", { "js": "never" }],
+        "import/no-cycle": "off",
+        "import/no-extraneous-dependencies": ["off", {
+            "devDependencies": ["**/tests/**", "**-tests.js", "test.js"],
+            "optionalDependencies": false,
+            "peerDependencies": false,
+            "packageDir": "./"
+        }],
+        "import/no-useless-path-segments": "error",
+        "import/order": "error",
+        "indent": ["error", 4, {
+            "SwitchCase": 1
+        }],
+        "lines-between-class-members": ["error"],
+        "max-classes-per-file": "off",
+        "max-len": ["error", { "code": 200, "tabWidth": 4 }],
+        "no-console": "error",
+        "no-multiple-empty-lines": "error",
+        "no-param-reassign": ["off"],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-restricted-globals": "off",
+        "no-undef": "off",
+        "no-use-before-define": "off",
+        "object-curly-newline": ["error", {
+            "consistent": true
+        }],
+        "operator-linebreak": "error",
+        "prefer-destructuring": "off",
+        "import/no-webpack-loader-syntax": "off",
+        "import/no-unresolved": "warn"
+    }
+}

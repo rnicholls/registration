@@ -1,0 +1,46 @@
+{
+  "name": "@absorblms/registration",
+  "version": "1.0.0",
+  "description": "AbsorbLMS.com: Building a User Registration Form",
+  "homepage": "https://www.absorblms.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/absorblms/registration.git"
+  },
+  "main": "script.js",
+  "scripts": {
+    "develop": "cross-env NODE_OPTIONS=--no-warnings npm run lint && node server.js",
+    "eslint": "eslint \"./**/*.js\"",
+    "lint": "cross-env npm run stylelint && npm run eslint",
+    "stylelint": "cross-env stylelint \"./**/*.{css,less}\""
+  },
+  "private": true,
+  "keywords": [
+    "Absorb",
+    "AbsorbLMS",
+    "eLearning"
+  ],
+  "author": {
+    "name": "Absorb LMS Software Inc.",
+    "email": "https://www.absorblms.com/company/locations-and-contact",
+    "url": "https://www.absorblms.com/"
+  },
+  "license": "UNLICENSED",
+  "files": [
+    "./"
+  ],
+  "dependencies": {
+    "postcss-less": "^6.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.37.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-watch": "^8.0.0",
+    "http-server": "^14.1.1",
+    "stylelint": "^15.3.0",
+    "stylelint-config-standard": "^31.0.0",
+    "stylelint-config-standard-less": "^1.0.0"
+  }
+}
