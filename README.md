@@ -25,10 +25,10 @@ You should perform the following tasks:
 
 ## Submission Guidelines:
 
-1. Fork this repository to your own GitHub account.
+1. Clone or Fork this repository to your own GitHub account.
 2. Complete the assignment by fixing the code and ensuring that the registration form works as expected.
 3. Wrap the form into a page template and style it with your own CSS. You have your own freedom of design here.
-4. The form should submit, disappear and then a 'Thank You' message should be displayed without a page refresh.
+4. The form should submit successfully, disappear and then a 'Thank You' message should be displayed without a page refresh.
 5. Commit and push all the required files to your forked repository.
 6. Share the link to your forked repository with us by responding to the email address of your Absorb recruiter.
 
