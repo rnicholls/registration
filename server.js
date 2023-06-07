@@ -3,7 +3,9 @@ const fs = require('fs');
 const path = require('path');
 
 const server = http.createServer((req, res) => {
-  let filePath = req.url === '/' ? '/index.php' : req.url;
+  let filePath = req.url === '/' ? '/index.html' : req.url;
+  const mimeType = req.url.match('.css$') ? 'text/css' : 'text/html';
+
   filePath = path.join(__dirname, filePath);
 
   fs.readFile(filePath, 'utf-8', (err, content) => {
@@ -13,12 +15,12 @@ const server = http.createServer((req, res) => {
       return;
     }
 
-    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.writeHead(200, { 'Content-Type': mimeType });
     res.end(content);
   });
 });
 
 const port = 3000;
 server.listen(port, () => {
-  console.log(`Server running on http://localhost:8080`);
+  console.log(`Server running on http://localhost:3000`);
 });

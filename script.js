@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('#registration-form');
-  const nameInput = document.getElementById('#name');
-  const emailInput = document.getElementById('#email');
-  const passwordInput = document.getElementById('#password');
-  const confirmPasswordInput = document.getElementById('.confirm-password');
+  const form = document.querySelector('#registration-form');
+  const nameInput = document.querySelector('#name');
+  const emailInput = document.querySelector('#email');
+  const passwordInput = document.querySelector('#password');
+  const confirmPasswordInput = document.querySelector('#confirm-password');
 
   form.addEventListener('submit', (e) => {
+    e.preventDefault();
     clearErrorMessages();
 
     const name = nameInput.value.trim();
@@ -15,45 +16,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!validateName(name)) {
       showError(nameInput, 'Please enter a valid name.');
-      return;
     }
 
     if (!validateEmail(email)) {
       showError(emailInput, 'Please enter a valid email address.');
-      return;
     }
 
     if (!validatePassword(password)) {
       showError(passwordInput, 'Please enter a valid password (at least 8 characters, one uppercase, one lowercase, one digit).');
-      return;
     }
 
     if (password !== confirmPassword) {
       showError(confirmPasswordInput, 'Passwords do not match.');
+    }
+
+    if (document.querySelectorAll('.error-message').length > 0) {
       return;
     }
 
     // Form validation successful, do further processing or submit the form
     console.log('Form submitted successfully!');
+    
     fetchpost(e);
   });
 
-    function fetchpost(e) {
-        // (A) GET FORM DATA
-        var data = new FormData(e.currentTarget);
+  function fetchpost(e) {
+    // (A) GET FORM DATA
+    var data = new FormData(e.currentTarget);
 
-        // (B) FETCH
-        fetch(e.currentTarget.action, { method: "post", body: data })
-            .then(res => res.text())
-            .then(txt => {
-                // do something when server responds
-                console.log(txt);
-            })
-            .catch(err => console.log(err));
-
-        // (C) PREVENT HTML FORM SUBMIT
-        return false;
-    }
+    // (B) FETCH
+    fetch(e.currentTarget.action, { method: 'post', body: data })
+    .then(res => res.text())
+    .then(txt => {
+      // do something when server responds
+      console.log(txt);
+      form.classList.add('success');
+    })
+    .catch(err => console.log(err));
+    // (C) PREVENT HTML FORM SUBMIT
+    return false;
+  }
 
   function validateName(name) {
     return /^[a-zA-Z]+$/.test(name);
@@ -79,14 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function clearErrorMessages() {
-    const errorMessages = document.querySelectorAll('.error-message');
-    errorMessages.forEach((errorMessage) => {
-      errorMessage.parentElement.removeChild(errorMessage);
-    });
-
-    const errorInputs = document.querySelectorAll('.error');
-    errorInputs.forEach((errorInput) => {
-      errorInput.classList.remove('error');
-    });
+    document.querySelectorAll('.error-message').forEach(e => e.remove());
   }
 });
