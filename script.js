@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showError(confirmPasswordInput, 'Passwords do not match.');
     }
 
-    if (document.querySelectorAll('.error-message').length > 0) {
+    if (!validateName(name) || !validateEmail(email) || !validatePassword(password) || password !== confirmPassword) {
       return;
     }
 
