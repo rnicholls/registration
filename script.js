@@ -35,26 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Form validation successful, do further processing or submit the form
-    console.log('Form submitted successfully!');
-    
     fetchpost(e);
   });
 
   function fetchpost(e) {
     // (A) GET FORM DATA
-    var data = new FormData(e.currentTarget);
+    const data = new FormData(e.currentTarget);
 
     // (B) FETCH
     fetch(e.currentTarget.action, { method: 'post', body: data })
-    .then(res => res.text())
-    .then(txt => {
-      // do something when server responds
-      console.log(txt);
-      form.classList.add('hidden');
-      thankYou.classList.remove('hidden');
-    })
-    .catch(err => console.log(err));
+      .then(res => res.text())
+      .then(() => {
+        // do something when server responds
+        form.classList.add('hidden');
+        thankYou.classList.remove('hidden');
+      })
+      .catch(() => {});
     // (C) PREVENT HTML FORM SUBMIT
     return false;
   }
