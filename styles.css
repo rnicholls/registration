@@ -5,9 +5,22 @@ body {
     align-items: center;
     background-color: #F5F4F7;
     height: 100vh;
+    flex-direction: column;
+    overflow: auto;
 }
 
-#registration-form {
+/* TYPOGRAPHY */
+h1 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;    
+    color: #000000;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+/* FORMS */
+#registration-form, #thank-you {
     width: 100%;
     max-width: 588px;
     border: 6px solid #FFFFFF;
@@ -25,17 +38,12 @@ form {
     transition: all 1s ease;
 }
 
-h1 {
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 30px;    
-    color: #000000;
-    text-align: center;
-    margin-bottom: 32px;
-}
-
 .form-group {
     margin-bottom: 16px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 label {
@@ -43,13 +51,18 @@ label {
     font-size: 14px;
     line-height: 18px;
     color: #000000;
-    display: block;
+    display: inline-block;
     margin-bottom: 8px;
+    flex: 1;
+}
+
+.form-group > div {
+    flex: 2;
 }
 
 input {
-    width: 300px;
     height: 44px;
+    width: 100%;
     line-height: 44px;
     border: 1px solid #E7E7E7;
     border-radius: 8px;
@@ -57,7 +70,7 @@ input {
     font-size: 14px;
     line-height: 18px;
     color: #000000;
-    padding-left: 16px;
+    text-indent: 16px;
 }
 
 button[type='submit'] {
@@ -72,23 +85,48 @@ button[type='submit'] {
     font-size: 16px;
     text-align: center;
     color: #FFFFFF;
+    position: relative;
+    margin: auto;
     margin-top: 46px;
 }
 
 .error-message {
     color: #FF0000;
     margin-top: 5px;
-    width: 300px;
+    width: 100%;
     margin-top: 4px;
     font-weight: 300;
     font-size: 14px;
     line-height: 18px;
 }
 
-/* .success {
-    opacity: 0;
+
+/* THANK YOU */
+.check {
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 24px;
+    width: 12px;
+    border-bottom: 7px solid #78b13f;
+    border-right: 7px solid #78b13f;
 }
 
-.thank-you {
+#registration-form.hidden, #thank-you.hidden{
+    display: none;
+}
 
-} */
+#thank-you h2 {
+    font-weight: 300;
+    margin-top: 16px;
+}
+
+/* RESPONSIVE */
+@media only screen and (max-device-width: 600px) {
+    label {
+        display: block;
+    }
+
+    .form-group { 
+        display: block;
+    }
+}

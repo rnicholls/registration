@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const emailInput = document.querySelector('#email');
   const passwordInput = document.querySelector('#password');
   const confirmPasswordInput = document.querySelector('#confirm-password');
+  const thankYou = document.querySelector('#thank-you');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -50,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(txt => {
       // do something when server responds
       console.log(txt);
-      form.classList.add('success');
+      form.classList.add('hidden');
+      thankYou.classList.remove('hidden');
     })
     .catch(err => console.log(err));
     // (C) PREVENT HTML FORM SUBMIT
