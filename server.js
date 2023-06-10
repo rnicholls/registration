@@ -23,6 +23,6 @@ const server = http.createServer((req, res) => {
 const port = 3000;
 server.listen(port, () => {
     /* eslint-disable no-console */
-    console.log('Server running at http://localhost:3000');
+    console.log(`Server running on http://localhost:${port}`);
     /* eslint-enable no-console */
 });
