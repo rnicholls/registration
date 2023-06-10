@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('#registration-form');
-    const nameInput = document.querySelector('#name');
-    const emailInput = document.querySelector('#email');
-    const passwordInput = document.querySelector('#password');
-    const confirmPasswordInput = document.querySelector('#confirm-password');
-    const thankYou = document.querySelector('#thank-you');
+    const form = document.getElementById('registration-form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    const thankYou = document.getElementById('thank-you');
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
